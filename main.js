@@ -1,17 +1,17 @@
 const express = require('express');
+const path = require('path')
+
 const server = express();
 
 server.use(express.urlencoded({extended: false}));
 
+server.set('views', path.join(__dirname, 'views'));
+server.set('view engine', 'ejs');
+
+
 server.get('/', (req, res) => { 
-
-    const html = 
-    `<form method="POST" action = "/html_form_sent">
-        <input type = "text" name = "send">
-        <button type = "submit">send</button>
-    </form>`
-
-    res.send(html)
+    let buttonName = 'send'
+    res.render('form')
 });
 
 server.post('/html_form_sent', (req, res) => { 
