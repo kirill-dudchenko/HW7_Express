@@ -10,7 +10,6 @@ server.set('view engine', 'ejs');
 
 
 server.get('/', (req, res) => { 
-    let buttonName = 'send'
     res.render('form')
 });
 
