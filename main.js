@@ -5,12 +5,14 @@ const server = express();
 
 server.use(express.urlencoded({extended: false}));
 
+server.use(express.static(__dirname + '/public'));
+
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'ejs');
 
 
 server.get('/', (req, res) => { 
-    res.render('form')
+    res.render('page')
 });
 
 server.post('/html_form_sent', (req, res) => { 
